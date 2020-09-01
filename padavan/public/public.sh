@@ -17,10 +17,10 @@ echo '修改密码'
 sed -i 's/#define\s*DEF_ROOT_PASSWORD\s*"admin"/#define  DEF_ROOT_PASSWORD     "'$user_password'"/g' $default_path
 
 echo "修改Lan ip"
-sed -i "s/192.168.2/$lan_ip/g" $default_path
+sed -i "s/192.168.1/$lan_ip/g" $default_path
 
 echo "修改Wif密码"
-sed -i "s/1234567890/$wifi_password/g" $default_path
+sed -i "s/3143259527/$wifi_password/g" $default_path
 
 echo "更新版本号时间"
 sed -i "s/FIRMWARE_BUILDS_REV=[0-9]*/FIRMWARE_BUILDS_REV=$version_time/g" ./versions.inc
@@ -72,13 +72,13 @@ echo "CONFIG_FIRMWARE_INCLUDE_KOOLPROXY=n" >> .config    # KP广告过滤
 
 # DNS 有关
 echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config # DNS-FORWARDER
-echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config     # smartdns
-echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=y" >> .config  # smartdns二进制文件
+echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config     # smartdns
+echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=n" >> .config  # smartdns二进制文件
 
 #网易云解锁
 echo "CONFIG_FIRMWARE_INCLUDE_WYY=y" >> .config
 #网易云解锁GO版本执行文件（4M多）注意固件超大小
-echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config
+echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=y" >> .config
 
 # 其他
 echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config    # MENTOHUST
